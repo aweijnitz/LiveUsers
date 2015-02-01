@@ -76,7 +76,8 @@ public class ApplicationStartup implements ServletContextListener {
     @Override
     public void contextDestroyed(ServletContextEvent event) {
         try {
-            socketSession.close();
+            if(socketSession != null)
+                socketSession.close();
         } catch (IOException ex) {
             logger.log(Level.SEVERE, "Closing websocket session failed", ex);
         }
