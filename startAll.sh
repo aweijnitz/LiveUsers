@@ -34,7 +34,7 @@ then
 fi
 
 echo "Depolying site conf to $NGINX_SITES"
-# Escape '/' so that it dosen't interfere with the sed replacement next
+# Escape '/' so that it doesn't interfere with the sed replacement next
 DIRESC=$(sed 's/[\/]/\\&/g' <<<"$DOCROOT");
 rm -f $NGINX_SITES/site_.conf
 cat nginx/site.conf | sed s/PORT/$PORT/g | sed s/DOCROOT/$DIRESC/g | sed s/SERVER/$SERVER/g > $NGINX_SITES/site_.conf
