@@ -20,13 +20,12 @@ import javax.websocket.ContainerProvider;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 import javax.websocket.DeploymentException;
-import javax.websocket.EncodeException;
 
 //import org.eclipse.jetty.websocket.jsr356.ClientContainer;
 @WebListener
-public class WebSocketAPIConnector implements ServletContextListener {
+public class ApplicationStartup implements ServletContextListener {
 
-    private static final Logger logger = Logger.getLogger(WebSocketAPIConnector.class.getName());
+    private static final Logger logger = Logger.getLogger(ApplicationStartup.class.getName());
 
     private final String id = UUID.randomUUID().toString().substring(0, 8);
     private WebSocketContainer container;
@@ -56,7 +55,7 @@ public class WebSocketAPIConnector implements ServletContextListener {
 
         container = ContainerProvider.getWebSocketContainer();
         logger.log(Level.FINEST, "Conneting to apiEndpoint at {0}", apiEndpoint);
-        try (Session session = container.connectToServer(WebSocketClient.class, URI.create(apiEndpoint))) {
+        try (Session session = container.connectToServer(ClickStreamListener.class, URI.create(apiEndpoint))) {
             session.getAsyncRemote().sendText(makeConnectMessage(id, apiKey, msgFilter));  // Connect and authorize
             logger.log(Level.INFO, "Connected to apiEndpoint at {0}", apiEndpoint);
             socketSession = session;

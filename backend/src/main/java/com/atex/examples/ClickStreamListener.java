@@ -16,8 +16,8 @@ import javax.websocket.Session;
 // For later. Register client encoders and decoders for JSON message format
 // @ClientEndpoint( encoders = { MessageEncoder.class }, decoders = { MessageDecoder.class } )
 @ClientEndpoint
-public class WebSocketClient {
-    private static final Logger log = Logger.getLogger(WebSocketClient.class.getName() );
+public class ClickStreamListener {
+    private static final Logger log = Logger.getLogger(ClickStreamListener.class.getName() );
     private Session mySession;
     private long messageCount = 0;
     

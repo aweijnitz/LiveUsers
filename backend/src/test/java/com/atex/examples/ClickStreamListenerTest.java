@@ -15,12 +15,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class WebSocketClientTest {
+public class ClickStreamListenerTest {
 
     @Test
     public void testOnMessage() {
         String message = "{ whatever: 'value' }";
-        WebSocketClient instance = new WebSocketClient();
+        ClickStreamListener instance = new ClickStreamListener();
         instance.onMessage(message);
         assertEquals("Message count should be 1", 1L, instance.getMessageCount());
     }
@@ -28,7 +28,7 @@ public class WebSocketClientTest {
     @Test
     public void testGetMessageCount() {
         System.out.println("getMessageCount");
-        WebSocketClient instance = new WebSocketClient();
+        ClickStreamListener instance = new ClickStreamListener();
         long expResult = 0L;
         long result = instance.getMessageCount();
         assertEquals("Message count should be 0", 0L, result);

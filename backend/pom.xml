@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.atex.examples</groupId>
-    <artifactId>SocketClient</artifactId>
+    <artifactId>PeepingTom</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -75,4 +75,5 @@
       
         </plugins>
     </build>
+    <name>PeepingTom</name>
 </project>
