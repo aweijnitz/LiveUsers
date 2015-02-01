@@ -5,8 +5,12 @@
  */
 package com.atex.examples;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.Resource;
+import javax.ejb.Stateless;
+import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.websocket.CloseReason;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -20,9 +24,13 @@ import javax.websocket.server.ServerEndpoint;
  * @author anders
  */
 @ServerEndpoint("/activeusers")
+@Stateless
 public class SocketServer {
 
     private static final Logger log = Logger.getLogger(SocketServer.class.getName());
+
+    @Resource
+    ManagedExecutorService mes;
 
     @OnMessage
     public void receiveMessage(String message, Session session) {
@@ -32,6 +40,11 @@ public class SocketServer {
     @OnOpen
     public void open(Session session) {
         log.log(Level.INFO, "Open session:{0}", session.getId());
+        try {
+            session.getBasicRemote().sendText("Welcome! All users to follow.");
+        } catch (IOException ex) {
+            // Ignore errors due to the client not being reachable.
+        }
     }
 
     @OnClose

@@ -1,3 +1,3 @@
 var config = {
-  serverUrl: "ws://localhost:8090/activeusers"
+  serverUrl: "ws://localhost:9999/activeusers"
 };

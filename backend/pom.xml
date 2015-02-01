@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <jettyVersion>9.2.6.v20141205</jettyVersion>
+        <jettyVersion>9.2.7.v20150116</jettyVersion>
     </properties>
 
     <dependencies>
@@ -53,7 +53,7 @@
 
   
     <build>
-        <finalName>socketclient</finalName>
+        <finalName>peepingtom</finalName>
 
         <plugins>
             <plugin>
