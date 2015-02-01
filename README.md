@@ -12,8 +12,8 @@ clients in the role of a WebSocket Server. Builds with Maven.
 HTML5 app using JQuery and Bootstrap. Connects to backend and
 subscribes to websocket messages. Builds with Grunt.js.
 
-### Ngnix sample conf
-Ngnix serves the html app and proxies calls to the backend.
+### Nginx sample conf
+Nginx serves the html app and proxies calls to the backend.
 
 
 
